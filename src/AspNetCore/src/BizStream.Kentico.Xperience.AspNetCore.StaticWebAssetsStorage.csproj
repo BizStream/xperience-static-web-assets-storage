@@ -12,5 +12,5 @@
     <ItemGroup>
         <AssemblyAttribute Include="CMS.AssemblyDiscoverable" />
     </ItemGroup>
-
+    
 </Project>

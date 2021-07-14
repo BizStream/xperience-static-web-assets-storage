@@ -6,9 +6,9 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+        <TargetFrameworks>netcoreapp3.1;net5.0;</TargetFrameworks>
         <TargetXperienceVersion>[13.0.0,14.0.0)</TargetXperienceVersion>
-        <IncludeXperienceWebReferences>false</IncludeXperienceWebReferences>
+        <IncludeXperienceWebReferences>true</IncludeXperienceWebReferences>
     </PropertyGroup>
 
     <PropertyGroup>

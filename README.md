@@ -1,4 +1,4 @@
-# Static Web Assets Storage
+# Static Web Assets Storage ![License](https://img.shields.io/github/license/BizStream/xperience-static-web-assets-storage) [![NuGet Version](https://img.shields.io/nuget/v/BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage)](https://nuget.org/packages/bizstream.kentico.xperience.aspnetcore.staticwebassetsstorage)
 
 This package provides an `AbstractStorageProvider` implementation, and an accompanying `Module`, that allow Xperience Page Builder to auto-discover static assets bundled from [Razor Class Libraries](https://docs.microsoft.com/en-us/aspnet/core/razor-pages/ui-class#create-an-rcl-with-static-assets) during Localhost development.
 
