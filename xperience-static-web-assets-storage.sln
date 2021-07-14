@@ -7,12 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD526D9D-C68
 	ProjectSection(SolutionItems) = preProject
 		src\Directory.Build.props = src\Directory.Build.props
 		src\Directory.Build.targets = src\Directory.Build.targets
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", "{E52739B0-01D4-46AC-B9C0-06E3A92DD27C}"
-	ProjectSection(SolutionItems) = preProject
-		src\AspNetCore\Directory.Build.props = src\AspNetCore\Directory.Build.props
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage", "src\AspNetCore\src\BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage.csproj", "{15F49ECF-77EE-4389-A973-E917EE94C6E1}"
 EndProject

@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <Description>Provides an AbstractStorageProvider and accompanying Module that enable auto-discovery of Xperience Page Builder static files within Razor Class Libraries.</Description>
-        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionPrefix>1.0.1</VersionPrefix>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,4 +14,8 @@
         <AssemblyAttribute Include="CMS.AssemblyDiscoverable" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="$(SourceDirectory)\..\README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    
 </Project>
