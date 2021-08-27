@@ -43,9 +43,9 @@ namespace BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage
                     continue;
                 }
 
-                // `BuilderAssetsProvider` prepends the `IWebHostEnvironment.WebRootPath` when resolving configured bundles/scripts/styles
+                // `BuilderAssetsProvider` prepends the `IWebHostEnvironment.ContentRootPath` when resolving configured bundles/scripts/styles
                 var rclPath = Path.Combine(
-                    environment.WebRootPath,
+                    environment.WebRootPath ?? environment.ContentRootPath,
                     basePath.Replace( "/", "\\" )
                 );
 
