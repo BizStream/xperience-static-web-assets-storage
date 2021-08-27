@@ -19,39 +19,17 @@ namespace BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage
             string rootPath = "PageBuilder"
         )
         {
-            if( options == null )
+            if( options is null )
             {
                 throw new ArgumentNullException( nameof( options ) );
             }
 
-            return options.Configure(
-                options =>
-                {
-                    var basePath = $"_content\\{assembly.GetName().Name}\\{rootPath}";
-                    var adminPath = $"{basePath}\\Admin";
-                    var publicPath = $"{basePath}\\Public";
+            if( assembly is null )
+            {
+                throw new ArgumentNullException( nameof( assembly ) );
+            }
 
-                    options.PageBuilderAdminScripts
-                        .Contents
-                        .IncludedWebRootDirectories
-                        .Add( adminPath );
-
-                    options.PageBuilderAdminStyles
-                        .Contents
-                        .IncludedWebRootDirectories
-                        .Add( adminPath );
-
-                    options.PageBuilderPublicScripts
-                        .Contents
-                        .IncludedWebRootDirectories
-                        .Add( publicPath );
-
-                    options.PageBuilderPublicStyles
-                        .Contents
-                        .IncludedWebRootDirectories
-                        .Add( publicPath );
-                }
-            );
+            return options.Configure( options => options.AddRCLBundle( assembly, rootPath ) );
         }
 
     }

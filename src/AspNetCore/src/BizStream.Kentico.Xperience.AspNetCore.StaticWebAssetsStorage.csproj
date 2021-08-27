@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <Description>Provides an AbstractStorageProvider and accompanying Module that enable auto-discovery of Xperience Page Builder static files within Razor Class Libraries.</Description>
-        <VersionPrefix>1.0.1</VersionPrefix>
+        <VersionPrefix>1.0.2</VersionPrefix>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
