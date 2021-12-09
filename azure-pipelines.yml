@@ -19,6 +19,23 @@ variables:
   - group: Shared Secrets
 
 steps:
+  - task: UseDotNet@2
+    displayName: use netcoreapp3.1 sdk
+    inputs:
+      version: '3.1.x'
+      performMultiLevelLookup: true
+
+  - task: UseDotNet@2
+    displayName: use net5.0 sdk
+    inputs:
+      version: '5.0.x'
+      performMultiLevelLookup: true
+
+  - task: UseDotNet@2
+    displayName: use net6.0 sdk
+    inputs:
+      version: '6.0.x'
+
   - task: DotNetCoreCLI@2
     displayName: restore dependencies
     inputs:
@@ -27,53 +44,11 @@ steps:
       feedsToUse: select
       vstsFeed: "4053202a-1650-47d7-804a-73158b8e55f7"
 
-  # - task: PowerShell@2
-  #   displayName: generate test config
-  #   inputs:
-  #     targetType: inline
-  #     script: |
-  #       $licenseKey = "$(CMSTestLicenseKey)"
-  #       if ([string]::IsNullOrWhiteSpace($licenseKey)) {
-  #         throw "CMSTestLicenseKey is invalid.";
-  #       }
-
-  #       $content = '{{ "CMSTestLicenseKey": "{0}" }}' -f $licenseKey
-  #       Set-Content -Path src/AspNetCore/test/appsettings.Development.json -Value $content
-
   - task: DotNetCoreCLI@2
     displayName: build projects
     inputs:
       projects: src/**/*.csproj
       arguments: --no-restore
-
-  # - task: DotNetCoreCLI@2
-  #   displayName: test netcoreapp3.1
-  #   inputs:
-  #     command: test
-  #     projects: src/**/test/**/BizStream.*.Tests.csproj
-  #     arguments: -f netcoreapp3.1 --collect:"XPlat Code coverage" --no-build
-  #     testRunTitle: netcoreapp3.1
-
-  # - task: DotNetCoreCLI@2
-  #   displayName: test net5.0
-  #   inputs:
-  #     command: test
-  #     projects: src/**/test/**/BizStream.*.Tests.csproj
-  #     arguments: -f net5.0 --collect:"XPlat Code coverage" --no-build
-  #     testRunTitle: net5.0
-
-  # - task: reportgenerator@4
-  #   displayName: generate code coverage
-  #   inputs:
-  #     reports: $(Agent.TempDirectory)/**/coverage.cobertura.xml
-  #     targetdir: $(Agent.TempDirectory)/CoverageResults
-
-  # - task: PublishCodeCoverageResults@1
-  #   displayName: publish code coverage
-  #   inputs:
-  #     codeCoverageTool: Cobertura
-  #     summaryFileLocation: $(Agent.TempDirectory)/CoverageResults/Cobertura.xml
-  #     failIfCoverageEmpty: true
 
   - task: DotNetCoreCLI@2
     displayName: create packages
