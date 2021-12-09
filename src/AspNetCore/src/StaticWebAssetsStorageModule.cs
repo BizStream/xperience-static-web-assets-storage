@@ -24,6 +24,12 @@ public class StaticWebAssetsStorageModule : Module
 
         var environment = Service.Resolve<IWebHostEnvironment>();
         var options = Service.Resolve<IOptions<StaticWebAssetsStorageOptions>>();
+
+        if( options.Value.EnsureWebContentRoot && string.IsNullOrEmpty( environment.WebRootPath ) )
+        {
+            environment.WebRootPath = Path.Combine( environment.ContentRootPath, "wwwroot" );
+        }
+
         if( !options.Value.EnvironmentNames.Any( name => environment.IsEnvironment( name ) ) )
         {
             // storage provider is not configured to run
@@ -42,7 +48,7 @@ public class StaticWebAssetsStorageModule : Module
 
             // `BuilderAssetsProvider` prepends the `IWebHostEnvironment.ContentRootPath` when resolving configured bundles/scripts/styles
             var rclPath = Path.Combine(
-                environment.WebRootPath ?? Path.Combine( environment.ContentRootPath, "wwwroot" ),
+                environment.WebRootPath,
                 basePath.Replace( "/", "\\" )
             );
 

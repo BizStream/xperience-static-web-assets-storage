@@ -40,7 +40,6 @@ public static class StaticWebAssetsHelper
             var contentNode = manifest.Root.Children![ "_content" ];
             foreach( var entry in contentNode!.Children! )
             {
-                string? basePath = $"_content/{entry.Key}";
                 if( !entry.Value.HasPatterns() )
                 {
                     continue;
@@ -50,6 +49,7 @@ public static class StaticWebAssetsHelper
                     entry.Value.Patterns.First().ContentRoot
                 );
 
+                string? basePath = $"_content/{entry.Key}";
                 yield return (basePath, path);
             }
 #else

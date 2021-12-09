@@ -5,6 +5,7 @@ VisualStudioVersion = 17.0.31423.177
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AD526D9D-C687-4855-ADB6-BEE6C605D6BF}"
 	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
 		src\Directory.Build.props = src\Directory.Build.props
 		src\Directory.Build.targets = src\Directory.Build.targets
 		README.md = README.md
@@ -13,6 +14,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AspNetCore", "AspNetCore", "{E52739B0-01D4-46AC-B9C0-06E3A92DD27C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage", "src\AspNetCore\src\BizStream.Kentico.Xperience.AspNetCore.StaticWebAssetsStorage.csproj", "{15F49ECF-77EE-4389-A973-E917EE94C6E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{92F9C191-C020-438F-99DE-CE5BDABF54EA}"
+	ProjectSection(SolutionItems) = preProject
+		tools\local-nuget.ps1 = tools\local-nuget.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
