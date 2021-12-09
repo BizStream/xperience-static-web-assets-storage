@@ -49,7 +49,7 @@ public static class StaticWebAssetsHelper
                     entry.Value.Patterns.First().ContentRoot
                 );
 
-                string? basePath = $"_content/{entry.Key}";
+                var basePath = $"_content/{entry.Key}";
                 yield return (basePath, path);
             }
 #else
@@ -83,8 +83,8 @@ public static class StaticWebAssetsHelper
 
         try
         {
-            string? manifestPath = configuration?.GetValue<string>( WebHostDefaults.StaticWebAssetsKey );
-            string? filePath = string.IsNullOrEmpty( manifestPath )
+            var manifestPath = configuration?.GetValue<string>( WebHostDefaults.StaticWebAssetsKey );
+            var filePath = string.IsNullOrEmpty( manifestPath )
                 ? ResolveRelativeToAssembly( environment )
                 : manifestPath;
 

@@ -77,7 +77,7 @@ internal class StaticWebAssetsFile : AbstractFile
 
     public override bool Exists( string path )
     {
-        if( TryGetRCLPath( path, out string? rclPath ) )
+        if( TryGetRCLPath( path, out var rclPath ) )
         {
             return file.Exists( rclPath );
         }

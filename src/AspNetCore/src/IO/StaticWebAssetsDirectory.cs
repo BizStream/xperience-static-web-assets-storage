@@ -51,7 +51,7 @@ internal class StaticWebAssetsDirectory : AbstractDirectory
 
     public override IEnumerable<string> EnumerateDirectories( string path, string searchPattern, SearchOption searchOption )
     {
-        if( TryGetRCLPath( path, out string? rclPath ) )
+        if( TryGetRCLPath( path, out var rclPath ) )
         {
             return directory.EnumerateDirectories( rclPath, searchPattern, searchOption )
                 .Select( file => string.Concat( this.rclPath, "\\", file.AsSpan( rootPath.Length ) ) );
@@ -62,7 +62,7 @@ internal class StaticWebAssetsDirectory : AbstractDirectory
 
     public override IEnumerable<string> EnumerateFiles( string path, string searchPattern )
     {
-        if( TryGetRCLPath( path, out string? rclPath ) )
+        if( TryGetRCLPath( path, out var rclPath ) )
         {
             return directory.EnumerateFiles( rclPath, searchPattern )
                 .Select( file => string.Concat( this.rclPath, "\\", file.AsSpan( rootPath.Length ) ) );
@@ -73,7 +73,7 @@ internal class StaticWebAssetsDirectory : AbstractDirectory
 
     public override bool Exists( string path )
     {
-        if( TryGetRCLPath( path, out string? rclPath ) )
+        if( TryGetRCLPath( path, out var rclPath ) )
         {
             return directory.Exists( rclPath );
         }
